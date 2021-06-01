@@ -21,7 +21,7 @@ namespace Library.Models
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
     public DateTime CheckOut { get; set; }
 
-    public virtual ApplicationUser User { get; set; }
+    //public virtual ApplicationUser User { get; set; }//did we mess this up?
     public virtual ICollection<AuthorBook> JoinEntities { get; }//set?
     public virtual ICollection<BookDueDate> JoinEntitiesDueDate { get; }//set?
   }

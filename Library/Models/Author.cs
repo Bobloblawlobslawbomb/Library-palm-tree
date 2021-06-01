@@ -12,6 +12,9 @@ namespace Library.Models
     public int AuthorId { get; set; }
     public string Name { get; set; }
     public string Specialty { get; set; }
+
+    public virtual ApplicationUser User { get; set; } //new line
+
     public virtual ICollection<AuthorBook> JoinEntities { get; set; }
   }
 }

@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Author
+
+<h2>Author Details:</h2>
+
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+<h4>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</h4>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This Author does not have any books registered.</p>
+}
+else
+{
+  <h4>Books this Author has written:</h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Book.Name</li>
+      @using (Html.BeginForm("DeleteBook", "Authors"))
+      {
+        @Html.Hidden("joinId", @join.AuthorBookId)
+        <input type="submit" value="Delete" />
+      }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add a Book", "AddBook", new { id = Model.AuthorId})</p>
+<p>@Html.ActionLink("Back to List", "Index")</p>
+<p>@Html.ActionLink("Edit Author", "Edit", new { id = Model.AuthorId})</p>
+<p>@Html.ActionLink("Delete Author", "Delete", new {id = Model.AuthorId})</p>
