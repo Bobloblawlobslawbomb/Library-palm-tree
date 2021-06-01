@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/css/styles.css" />
+  <title>The Library</title>
+</head>
+
+<body>
+  <div class="container">
+    @RenderBody()
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class="btn btn-primary" })
+  </div>
+</body>
+
+</html>
